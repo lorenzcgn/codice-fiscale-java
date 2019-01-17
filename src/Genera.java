@@ -63,10 +63,9 @@ class Genera {
 		  }
 		}
 
-          if(giorno1 > 10)
-              this.giorno = Integer.toString(giorno1);
+          if(giorno1 > 10) this.giorno = Integer.toString(giorno1);
           
-          else this.giorno = Integer.toString('0'+giorno1);
+          else this.giorno = '0'+Integer.toString(giorno1);
          
 
 	  
