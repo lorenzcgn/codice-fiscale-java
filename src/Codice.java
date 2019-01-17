@@ -1,4 +1,5 @@
 
+package codice;
 import java.util.*;
 
 
@@ -12,7 +13,7 @@ public class Codice {
 			+ "cioe' che non possono avere piu' di "+(year-1900) +" anni e che son nate dopo il "+(year+1)+", compreso ovviamente. \n");
 
 	
-	Genera Mario = new Genera("Mario","Rossi","Brescia","Aprile","1978",21,"m");
+	Genera Mario = new Genera("Mario","Rossi","Brescia","Aprile","1978","21","m");
 	System.out.println("Il codice fiscale di Mario Rossi, nato a Brescia il 21 aprile 1978, e' il seguente: "+Mario.getCodiceFiscale());
 	System.out.println("");
 	System.out.println("Ora invece puoi inserire i tuoi dati per calcolare il tuo o quello di altre persone");
@@ -21,7 +22,7 @@ public class Codice {
 		
 	System.out.println("Ok, quindi inserisci i dati, facendo attenzione agli errori di battitura (se sbagli puoi comunque rifare)");
 	
-	Genera Persona = new Genera("a","a","a","a","a",1,"a");
+	Genera Persona = new Genera("a","a","a","a","a","1","a");
 	Persona.chiediDati();
 	
 	System.out.println("Il codice fiscale dei dati inseriti e' il seguente: "+Persona.getCodiceFiscale());
