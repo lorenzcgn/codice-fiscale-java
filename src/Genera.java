@@ -1,3 +1,4 @@
+package codice;
 import java.util.*;
 import java.io.*;
  
@@ -8,12 +9,12 @@ class Genera {
   private String comune;
   private String m;
   private String sesso;
-  private int giorno;
+  private String giorno;
  
   Scanner s=new Scanner(System.in);
 
   
-  Genera(String nome, String cognome, String comune, String m, String anno, int giorno,String sesso) {
+  Genera(String nome, String cognome, String comune, String m, String anno, String giorno,String sesso) {
     this.nome=nome;
     this.cognome=cognome;
     this.comune=comune;
@@ -51,16 +52,23 @@ class Genera {
     		}while(Integer.parseInt(this.anno) < 1900 || Integer.parseInt(this.anno) > Calendar.getInstance().get(Calendar.YEAR));
 	   
 	  System.out.println("Inserisci il tuo giorno di nascita: ");
-	  this.giorno=s.nextInt();
-	  while(this.giorno<1 || this.giorno>31) {
+	  this.giorno=s.next();
+          int giorno1 = Integer.parseInt(giorno); 
+	  while(giorno1<1 || giorno1>31) {
 		  try {
 			  System.out.print("Input non valido. Reiserisci il giorno: ");
-			  this.giorno=s.nextInt();
+			  this.giorno=s.next();
 		  } catch(InputMismatchException e) {
 		    System.out.print("Input non valido. Reiserisci il giorno: ");
 		  }
 		}
-	  
+
+          if(giorno1 > 10)
+              this.giorno = Integer.toString(giorno1);
+          
+          else this.giorno = Integer.toString('0'+giorno1);
+         
+
 	  
 	  System.out.println("Inserisci il tuo sesso (M/F - m/f): ");
 	  String so=s.next();
@@ -73,6 +81,11 @@ class Genera {
 		  }
 		}
 	  this.sesso=so.toUpperCase();
+          
+          if (sesso.equals("F")) {
+              giorno1= giorno1+40;
+              this.giorno = Integer.toString(giorno1);
+          }
 
   }
   
@@ -98,10 +111,10 @@ class Genera {
   String getAnno() {
     return (anno.substring(2,4));
   }
-  int getGiorno() {
-	  return (sesso.equals("M")) ? giorno : (giorno+40);
+  String getGiorno() {
+	  return giorno;
   }
-  int getGiornoInserito() {
+  String getGiornoInserito() {
     return giorno;
   }
   String getComune() {
@@ -222,7 +235,7 @@ class Genera {
   }
   
   public String toString() {
-    return getCognome().toUpperCase()+getNome().toUpperCase()+getAnno()+getMese()+getGiorno()+getComune()+getCodice();
+    return getCognome().toUpperCase()+getNome().toUpperCase()+getAnno()+getMese()+getGiorno()+getComune()+getCodice().toUpperCase();
   }
  
   
