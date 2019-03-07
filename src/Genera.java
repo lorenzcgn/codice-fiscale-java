@@ -27,17 +27,17 @@ class Genera {
   public void chiediDati() {
 	  System.out.println("Inserisci il tuo nome: ");
 	  do{
-		  this.nome=s.next();
+		  this.nome=s.nextLine();
 	  }while(this.nome.length()<2);
 	  System.out.println("Inserisci il tuo cognome: ");
 	  do {
-	  this.cognome=s.next();
+	  this.cognome=s.nextLine();
 	  }while(this.cognome.length()<2);
 	  System.out.println("Inserisci il tuo comune: ");
 	  do {
-	  this.comune=s.next();
+	  this.comune=s.nextLine();
       }while(this.comune.length()<2);
-	  System.out.println("Inserisci il tuo mese di nascita: ");
+	  System.out.println("Inserisci il tuo mese di nascita in lettere: ");
 	  this.m=s.next();
 	  
 	  do{   
